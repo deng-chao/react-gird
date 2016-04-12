@@ -1,5 +1,5 @@
 {
-  "name": "reactapp",
+  "name": "react-grid",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,9 @@
     "react": "^0.14.8",
     "react-dom": "^0.14.8"
   },
-  "description": ""
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git@git.coding.net:quyuan/react-grid.git"
+  }
 }

@@ -5,6 +5,7 @@ import Filter from './Filter.jsx';
 import Pager from './Pager.jsx';
 import Row from './Row.jsx';
 import GridHeader from './GridHeader.jsx';
+import GridRow from './GridRow.jsx';
 
 
 class Grid extends React.Component {
@@ -46,20 +47,17 @@ class Grid extends React.Component {
 	}
 
 	renderRow(row, i) {
-		var result;
-		if(i.i == 0){
-			result = <GridHeader key = {i} rowIndex = {i} row = {row} columns = {this.props.children} />;
-		} else {
-
-		}
+		var	result = <GridRow key = {i.i} rowIndex = {i.i} row = {row} columns = {this.props.children} />
 		return result;
 	}
 
 	render() {
+		console.log(this.state.data.length);
 		return (
 			<table 
 			className="table table-bordered table-hover gird-shadow" 
 			style={{ margin:0 }}>
+				<GridHeader columns = {this.props.children} />
 				{this.state.data.map((row, i) => this.renderRow({row}, {i}))}
 			</table>
 		);
