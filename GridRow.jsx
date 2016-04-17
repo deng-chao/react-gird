@@ -6,13 +6,18 @@ import GridTd from './GridTd.jsx';
 class GridRow extends React.Component {
 
 	render() {
-		console.log(this.props.row);
 		return (
-			<tbody>
-				<tr>
-					{this.props.columns.map((column, i) => <GridTd key = {i} data = {this.props.row.row[column.props.field]}/>)}
-				</tr>
-			</tbody>			
+			<tr>
+			{
+				this.props.columns.map(
+					(column, i) => 
+					<GridTd key = {i} 
+						data = {this.props.row}
+						field = {column.props.field}
+						rowIndex = {i}
+						styleFunction = {column.props.styleFunction}/>)
+			}
+			</tr>
 		);
 	}
 }

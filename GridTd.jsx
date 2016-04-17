@@ -4,10 +4,16 @@ import ReactDOM from 'react-dom';
 class GridTd extends React.Component {
 
 	render() {
-		console.log(this.props.data);
+
+		var style;
+
+		if(this.props.styleFunction) {
+			var style = this.props.styleFunction(this.props.data, this.props.field, this.props.rowIndex);
+		}
+
 		return (
-			<td>
-				{this.props.data}
+			<td style = { style }>
+				{this.props.data[this.props.field]}
 			</td>
 		);
 	}

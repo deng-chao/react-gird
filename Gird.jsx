@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import Filter from './Filter.jsx';
 import Pager from './Pager.jsx';
-import Row from './Row.jsx';
 import GridHeader from './GridHeader.jsx';
 import GridRow from './GridRow.jsx';
 
@@ -17,7 +16,6 @@ class Grid extends React.Component {
 		this.query = this.query.bind(this);
 		this.renderRow = this.renderRow.bind(this);
 	}
-
 
 	componentDidMount() {
   		var criteria = {"from" : 0, "size" : this.props.pagesize};
@@ -47,18 +45,34 @@ class Grid extends React.Component {
 	}
 
 	renderRow(row, i) {
-		var	result = <GridRow key = {i.i} rowIndex = {i.i} row = {row} columns = {this.props.children} />
+		var	result = <GridRow key = {i} rowIndex = {i} row = {row} columns = {this.props.children} />
 		return result;
 	}
 
 	render() {
-		console.log(this.state.data.length);
 		return (
 			<table 
 			className="table table-bordered table-hover gird-shadow" 
 			style={{ margin:0 }}>
 				<GridHeader columns = {this.props.children} />
-				{this.state.data.map((row, i) => this.renderRow({row}, {i}))}
+				<tbody>
+					{this.state.data.map((row, i) => this.renderRow(row, i))}
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colSpan="5">
+							<Filter 
+								style = {{ margin: 5, float: "left" }} 
+								query = {this.query} 
+								criteria = {this.state.criteria}/>
+							<Pager 
+								style = {{ margin: 0, padding: 0, float: "right" }} 
+								query = {this.query} 
+								criteria = {this.state.criteria}
+								total = {this.state.total}/>
+						</td>
+					</tr>
+				</tfoot>
 			</table>
 		);
 	}
