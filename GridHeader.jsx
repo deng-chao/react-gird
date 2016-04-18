@@ -8,7 +8,7 @@ class GridHeader extends React.Component {
 		return (
 			<thead>
 				<tr>
-					{this.props.columns.map((column, i) => <GridTh key = {i} text = {column.props.title}/>)}
+					{this.props.columns.map((column, i) => <GridTh key = {i} text = {column.props.title} sortable = {column.props.sortable}/>)}
 				</tr>
 			</thead>
 		);

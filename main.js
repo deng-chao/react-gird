@@ -12,7 +12,7 @@ var styleFun1 = function(row, field, rowIndex){
 
 ReactDOM.render(
 	<Grid dataurl = "http://localhost:8080/pretty/testcase" pagesize = "5">
-		<input title='Name' field='name' styleFunction = { styleFun1 }></input>
+		<input title='Name' field='name' sortable = 'true' styleFunction = { styleFun1 }></input>
 		<input title='Path' field='path'></input>
 		<input title='Revision' field='revision'></input>
 	</Grid>, 
