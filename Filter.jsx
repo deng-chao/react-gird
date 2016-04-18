@@ -30,7 +30,7 @@ class Filter extends React.Component {
 				className="form-control" 
 				placeholder="Search for..." 
 				onKeyUp = { this.keyup }
-				style = {{float: "left", width: 300}}/>	
+				style = {{float: "left", width: 100}}/>	
 
 		    	<label 
 		    	className="checkbox-inline" 

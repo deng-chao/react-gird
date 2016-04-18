@@ -54,7 +54,10 @@ class Grid extends React.Component {
 			<table 
 			className="table table-bordered table-hover gird-shadow" 
 			style={{ margin:0 }}>
-				<GridHeader columns = {this.props.children} />
+				<GridHeader 
+					columns = {this.props.children} 
+					query = {this.query} 
+					criteria = {this.state.criteria} />
 				<tbody>
 					{this.state.data.map((row, i) => this.renderRow(row, i))}
 				</tbody>
@@ -64,12 +67,12 @@ class Grid extends React.Component {
 							<Filter 
 								style = {{ margin: 5, float: "left" }} 
 								query = {this.query} 
-								criteria = {this.state.criteria}/>
+								criteria = {this.state.criteria} />
 							<Pager 
 								style = {{ margin: 0, padding: 0, float: "right" }} 
 								query = {this.query} 
 								criteria = {this.state.criteria}
-								total = {this.state.total}/>
+								total = {this.state.total} />
 						</td>
 					</tr>
 				</tfoot>

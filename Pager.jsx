@@ -30,7 +30,7 @@ class Pager extends React.Component {
 
 		var items = [];
 
-		var start = this.state.at - 5 > 0 ? this.state.at - 5 : 0;
+		var start = this.state.at - 4 > 0 ? this.state.at - 4 : 0;
 
 		for (var index =  start; index < this.props.total - 1; index++) {
 			if(this.state.at == index + 1) {
@@ -42,7 +42,7 @@ class Pager extends React.Component {
 			} else {
 				items.push(<li key={index} onClick = {this.to}><a href="#">{index + 1}</a></li>);
 			}
-			if (items.length > 9) {
+			if (items.length > 6) {
 				break;
 			}
 		}
